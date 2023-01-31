@@ -1,6 +1,5 @@
 import {
   IsAlpha,
-  IsAlphanumeric,
   IsBoolean,
   IsNotEmpty,
   IsOptional,
