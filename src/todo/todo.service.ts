@@ -1,26 +1,29 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import { TodoRepository } from './todo.repository';
 
 @Injectable()
 export class TodoService {
+  constructor(private todoRepository: TodoRepository) {}
+
   create(createTodoDto: CreateTodoDto) {
-    return 'This action adds a new todo';
+    return this.todoRepository.create(createTodoDto);
   }
 
   findAll() {
-    return `This action returns all todo`;
+    return this.todoRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} todo`;
+  findOne(id: string) {
+    return this.todoRepository.findOne(id);
   }
 
-  update(id: number, updateTodoDto: UpdateTodoDto) {
-    return `This action updates a #${id} todo`;
+  update(id: string, updateTodoDto: UpdateTodoDto) {
+    return this.todoRepository.update(id, updateTodoDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} todo`;
+  remove(id: string) {
+    return this.todoRepository.remove(id);
   }
 }

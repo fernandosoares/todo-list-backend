@@ -1,4 +1,6 @@
 import {
+  IsAlpha,
+  IsAlphanumeric,
   IsBoolean,
   IsNotEmpty,
   IsOptional,
@@ -8,7 +10,7 @@ import {
 
 export class CreateTodoDto {
   @IsOptional()
-  @IsString()
+  @IsAlpha()
   id?: string;
 
   @IsNotEmpty()
