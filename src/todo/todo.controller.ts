@@ -35,6 +35,7 @@ export class TodoController {
     const todos = await this.todoService.findAll();
     if (!todos)
       throw new HttpException('No TODOS were found', HttpStatus.NOT_FOUND);
+    return todos;
   }
 
   @Get(':id')
